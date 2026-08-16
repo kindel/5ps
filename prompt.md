@@ -36,23 +36,13 @@ Write a 5Ps, not a blog post. No em dashes. Oxford commas. No hedging. Present t
 
 ## Format
 
-Five `##` headings, in this order, and nothing else at that level:
-
-```
-## Purpose
-## Principles
-## Priorities
-## People
-## Plan
-```
-
-Purpose is a short paragraph. Principles and Priorities are numbered `**Title.**` body on the same line. People are named bullets, scaled as above. Plan starts with `**End date:**` and then dated lines.
+The working plan looks like the document below. Five `##` headings, in this order, and nothing else at that level. Purpose is a short paragraph. Principles and Priorities are numbered `**Title.**` body on the same line. People are named bullets, scaled as above. Plan starts with `**End date:**`.
 
 Wrong: three missions, a values poster, a flat list of focus areas, an org chart, a backlog, "Q3," "soon," or a sixth heading.
 
 Scale the depth. An internship can be one Purpose sentence, three Principles, two Priorities, two names, and three dates. A company program can be longer and should still be a North Star. Past about a page, say what you would cut.
 
-Example of the shape only. This is a phone-platform plan from 2009. Do not fill it in. Do not reuse the content.
+This is a phone-platform plan from 2009. It is the format. Do not fill it in. Do not reuse the content.
 
 ````
 ## Purpose
