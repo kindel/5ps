@@ -26,7 +26,7 @@ If the plan is soft (unnamed people, no end date, everything is P1), a good run 
 
 ## What you should get back
 
-A working 5Ps in the document shape (five `##` headings, Principles in the tenets-for-tenets list format, a Plan that starts with an end date), a short editor note on each P, a review against the five, and a few debate questions the room should actually fight about.
+A working 5Ps (five headings, Principles in the tenets-for-tenets list format, a Plan that starts with an end date) and one short review: what was soft, where risk landed, and the fight the room should have.
 
 ## Related
 
