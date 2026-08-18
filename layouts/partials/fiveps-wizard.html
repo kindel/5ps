@@ -1,0 +1,17 @@
+<div id="fiveps-wizard" class="fiveps-wizard"></div>
+{{ with resources.Get "fiveps/prompt.md" }}
+  <pre id="fiveps-prompt" hidden>{{ .Content | htmlEscape }}</pre>
+{{ else }}
+  {{ with resources.Get "prompt.md" }}
+    <pre id="fiveps-prompt" hidden>{{ .Content | htmlEscape }}</pre>
+  {{ else }}
+    {{ errorf "kindel/5ps prompt.md is missing. Check the module mount." }}
+  {{ end }}
+{{ end }}
+<script src="{{ "js/fiveps-wizard.js" | relURL }}"></script>
+<script>
+  kindelFivePsWizard({
+    root: "fiveps-wizard",
+    prompt: "fiveps-prompt"
+  });
+</script>

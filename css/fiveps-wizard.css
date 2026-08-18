@@ -1,0 +1,467 @@
+/* 5Ps wizard. Kindel ink, rust, paper. */
+
+.fiveps-host {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+.fiveps-post-link {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.fiveps-post-link a {
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-post-link a:hover {
+  color: var(--kld-rust, #b5532f);
+}
+
+.fiveps-how {
+  margin: 2.25rem 0 0;
+}
+
+.fiveps-how > p {
+  margin: 0.75rem 0 0;
+}
+
+.fiveps-wizard {
+  margin: 1.75rem 0 0;
+}
+
+.fiveps-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1.75rem;
+}
+
+.fiveps-step {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--kld-muted, #59636f);
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.55rem 0.35rem 0.2rem;
+}
+
+.fiveps-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--kld-line, #d8dee4);
+  font-size: 0.85rem;
+}
+
+.fiveps-step.is-done {
+  color: var(--kld-ink, #17202b);
+}
+
+.fiveps-step.is-done .fiveps-step-num {
+  background: var(--kld-sage, #dce7dc);
+  box-shadow: none;
+}
+
+.fiveps-step.is-current {
+  color: var(--kld-ink, #17202b);
+}
+
+.fiveps-step.is-current .fiveps-step-num {
+  background: var(--kld-rust, #b5532f);
+  color: #fff;
+  box-shadow: none;
+}
+
+.fiveps-step:hover .fiveps-step-name,
+.fiveps-step:focus .fiveps-step-name {
+  color: var(--kld-rust, #b5532f);
+}
+
+.fiveps-panel h2 {
+  margin: 0.35rem 0 0;
+}
+
+.fiveps-panel p {
+  margin: 0.75rem 0 0;
+}
+
+.fiveps-field-label {
+  display: block;
+  margin: 1.15rem 0 0.4rem;
+  font-size: 0.85rem;
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-work,
+.fiveps-end,
+.fiveps-item-title,
+.fiveps-item-body,
+.fiveps-ms-label,
+.fiveps-ms-date {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--kld-line, #d8dee4);
+  background: #fff;
+  color: var(--kld-ink, #17202b);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.fiveps-work {
+  min-height: 7.5rem;
+  resize: vertical;
+}
+
+.fiveps-work-short {
+  min-height: 5rem;
+}
+
+.fiveps-work:focus,
+.fiveps-end:focus,
+.fiveps-item-title:focus,
+.fiveps-item-body:focus,
+.fiveps-ms-label:focus,
+.fiveps-ms-date:focus {
+  outline: 2px solid var(--kld-ink, #17202b);
+  outline-offset: 2px;
+}
+
+.fiveps-endrow {
+  max-width: 18rem;
+}
+
+.fiveps-note {
+  color: var(--kld-ink, #17202b);
+}
+
+.fiveps-help a {
+  color: var(--kld-rust, #b5532f);
+}
+
+.fiveps-items,
+.fiveps-ms-list,
+.fiveps-chips {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.fiveps-item,
+.fiveps-ms-row {
+  display: grid;
+  grid-template-columns: 2rem minmax(9rem, 0.7fr) minmax(12rem, 1.4fr) 2rem;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0 0 0.45rem;
+}
+
+.fiveps-item-num {
+  color: var(--kld-muted, #59636f);
+  text-align: right;
+}
+
+.fiveps-item-remove {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--kld-muted, #59636f);
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.fiveps-item-remove:hover,
+.fiveps-item-remove:focus {
+  color: var(--kld-rust, #b5532f);
+}
+
+.fiveps-add,
+.fiveps-back,
+.fiveps-next,
+.fiveps-open,
+.fiveps-copy,
+.fiveps-reset {
+  appearance: none;
+  border: 0;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.7rem 1.15rem;
+}
+
+.fiveps-add,
+.fiveps-back {
+  background: transparent;
+  color: var(--kld-ink, #17202b);
+  box-shadow: inset 0 0 0 1px var(--kld-ink, #17202b);
+}
+
+.fiveps-next,
+.fiveps-open {
+  background: var(--kld-rust, #b5532f);
+  color: #fff;
+}
+
+.fiveps-copy {
+  background: transparent;
+  color: var(--kld-ink, #17202b);
+  box-shadow: inset 0 0 0 1px var(--kld-ink, #17202b);
+}
+
+.fiveps-add:hover,
+.fiveps-back:hover,
+.fiveps-copy:hover,
+.fiveps-next:hover,
+.fiveps-open:hover,
+.fiveps-add:focus,
+.fiveps-back:focus,
+.fiveps-copy:focus,
+.fiveps-next:focus,
+.fiveps-open:focus {
+  background: var(--kld-ink, #17202b);
+  color: #fff;
+  box-shadow: none;
+}
+
+.fiveps-example {
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-example-use {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--kld-ink, #17202b);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.fiveps-example-use:hover,
+.fiveps-example-use:focus {
+  color: var(--kld-rust, #b5532f);
+}
+
+.fiveps-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.fiveps-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--kld-wash, #f4f6f3);
+  color: var(--kld-ink, #17202b);
+}
+
+.fiveps-chip-role {
+  color: var(--kld-muted, #59636f);
+  font-size: 0.9rem;
+}
+
+.fiveps-timeline {
+  margin: 1.4rem 0 0;
+  padding: 2.6rem 4rem 2.1rem;
+  background: var(--kld-wash, #f4f6f3);
+}
+
+.fiveps-track {
+  position: relative;
+  height: 4.8rem;
+  cursor: copy;
+}
+
+.fiveps-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1.15rem;
+  height: 3px;
+  background: var(--kld-ink, #17202b);
+}
+
+.fiveps-mark {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  position: absolute;
+  top: 0.55rem;
+  transform: translateX(-50%);
+  width: 7.5rem;
+  padding: 0;
+  cursor: grab;
+  text-align: center;
+}
+
+.fiveps-mark.is-locked {
+  cursor: default;
+}
+
+.fiveps-mark.is-dragging {
+  cursor: grabbing;
+  z-index: 3;
+}
+
+.fiveps-mark-dot {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin: 0 auto 0.35rem;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--kld-ink, #17202b);
+}
+
+.fiveps-mark.is-end .fiveps-mark-dot {
+  background: var(--kld-rust, #b5532f);
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.fiveps-mark.is-locked .fiveps-mark-dot {
+  background: var(--kld-ink, #17202b);
+  border-radius: 2px;
+}
+
+.fiveps-mark-label,
+.fiveps-mark-date {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fiveps-mark-date {
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-tl-legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--kld-muted, #59636f);
+  font-size: 0.9rem;
+}
+
+.fiveps-ms-row {
+  grid-template-columns: 10.5rem minmax(12rem, 1fr) 2rem;
+}
+
+.fiveps-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+}
+
+.fiveps-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.fiveps-actions-note,
+.fiveps-reset-wrap {
+  margin: 0.65rem 0 0;
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-reset {
+  background: transparent;
+  color: var(--kld-muted, #59636f);
+  padding: 0;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.fiveps-reset:hover,
+.fiveps-reset:focus {
+  color: var(--kld-rust, #b5532f);
+  background: transparent;
+}
+
+.fiveps-repo {
+  margin: 2.5rem 0 0;
+  text-align: center;
+}
+
+.fiveps-repo a {
+  display: inline-flex;
+  color: var(--kld-muted, #59636f);
+}
+
+.fiveps-repo a:hover {
+  color: var(--kld-ink, #17202b);
+}
+
+.fiveps-repo-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .fiveps-timeline {
+    padding: 2.4rem 3.4rem 1.8rem;
+    overflow-x: hidden;
+  }
+
+  .fiveps-mark {
+    width: 5.6rem;
+  }
+
+  .fiveps-item {
+    grid-template-columns: 1.4rem 1fr 2rem;
+    grid-template-areas:
+      "num title remove"
+      ". body body";
+  }
+
+  .fiveps-item-num { grid-area: num; }
+  .fiveps-item-title { grid-area: title; }
+  .fiveps-item-body { grid-area: body; }
+  .fiveps-item-remove { grid-area: remove; }
+
+  .fiveps-step-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .fiveps-ms-row {
+    grid-template-columns: 1fr 2rem;
+    grid-template-areas:
+      "date remove"
+      "label label";
+  }
+
+  .fiveps-ms-date { grid-area: date; }
+  .fiveps-ms-label { grid-area: label; }
+  .fiveps-ms-row .fiveps-item-remove { grid-area: remove; }
+}

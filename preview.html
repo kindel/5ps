@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5Ps wizard preview</title>
+  <link rel="stylesheet" href="css/fiveps-wizard.css">
+  <style>
+    :root {
+      --kld-ink: #17202b;
+      --kld-muted: #59636f;
+      --kld-line: #d8dee4;
+      --kld-paper: #ffffff;
+      --kld-wash: #f4f6f3;
+      --kld-sage: #dce7dc;
+      --kld-blue: #24445f;
+      --kld-rust: #b5532f;
+    }
+    body {
+      margin: 0;
+      font: 16px/1.5 Inter, system-ui, sans-serif;
+      color: var(--kld-ink);
+      background: var(--kld-paper);
+    }
+    .kld-section-label {
+      margin: 0;
+      color: var(--kld-rust);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <article class="fiveps-host">
+    <p class="fiveps-post-link">
+      <a href="https://blog.kindel.com/2011/06/14/the-5-ps-achieving-focus-in-any-endeavor/">The 5Ps</a>
+    </p>
+    <section class="fiveps-how">
+      <p class="kld-section-label">How to use it</p>
+      <h2>Walk the five Ps. Then open an agent.</h2>
+      <p>Each step writes the prompt. Claude, ChatGPT, and Grok open with it filled in. Copy is for everything else.</p>
+      <div id="fiveps-wizard" class="fiveps-wizard"></div>
+      <pre id="fiveps-prompt" hidden></pre>
+    </section>
+  </article>
+  <script src="js/fiveps-wizard.js"></script>
+  <script>
+    fetch("prompt.md").then(function (r) { return r.text(); }).then(function (text) {
+      document.getElementById("fiveps-prompt").textContent = text;
+      kindelFivePsWizard();
+    }).catch(function () {
+      kindelFivePsWizard();
+    });
+  </script>
+</body>
+</html>
