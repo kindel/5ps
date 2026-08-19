@@ -44,3 +44,7 @@ After you proceed: a working 5Ps (five headings, Principles in the tenets-for-te
 ## App card
 
 This repo ships `card.json` and `icon.png` as the listing for any host. The card has an id, name, href, status, order, icon, and summary. Do not invent extra fields.
+
+## License
+
+MIT. Copyright (c) 2026 Kindel, LLC. Keep the copyright notice and permission notice in all copies.
