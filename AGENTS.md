@@ -17,3 +17,5 @@ SCHEMA.md is the contract. The data is data/index.json, data/facets.json, and da
 ## About this repo
 
 This repo is the wizard that writes a 5Ps prompt.
+
+On kindel.com the page uses `.tool-page` and this host sets `--tool-page-width: 980px`. Do not add another page max-width on the card or wizard.
