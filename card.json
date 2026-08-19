@@ -1,6 +1,7 @@
 {
   "id": "5ps",
   "name": "5Ps",
+  "subtitle": "Purpose, Principles, Priorities, People, Plan",
   "href": "/5ps/",
   "status": "beta",
   "order": 60,
