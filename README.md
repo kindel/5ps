@@ -38,3 +38,7 @@ A working 5Ps (five headings, Principles in the tenets-for-tenets list format, a
 - [kindel/tenets](https://github.com/kindel/tenets)
 - [Bedside contract](https://github.com/tig/bedside/tree/main/contract)
 - [Writing in Tig's Voice](https://github.com/kindel/blog/blob/master/docs/writing-in-tigs-voice.md)
+
+## App card
+
+This repo ships `card.json` and `icon.png` as the listing for any host. The card has an id, name, href, status, order, icon, and summary. Do not invent extra fields.
