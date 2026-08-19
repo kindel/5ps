@@ -1,6 +1,10 @@
 /* 5Ps wizard. Kindel ink, rust, paper. */
 
 .fiveps-host {
+  --tool-page-width: 980px;
+}
+
+.fiveps-host:not(.tool-page) {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 1.25rem 4rem;
