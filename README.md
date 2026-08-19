@@ -23,11 +23,13 @@ Live: [https://kindel.com/5ps/](https://kindel.com/5ps/).
 4. On Plan, slide milestones between today and the end date. Drag the end to expand.
 5. On any step, copy the prompt or open Claude, ChatGPT, or Grok with it filled in.
 
-If the plan is soft (unnamed people, no end date, everything is P1), a good run will say so and fix it. A dated Purpose is not soft. If the input is too thin to take a stand, it should ask one question and wait.
+If the plan is soft (unnamed people, no end date, everything is P1), a good run will say so in the summary, then fix it after you proceed. A dated Purpose is not soft.
 
 ## What you should get back
 
-A working 5Ps (five headings, Principles in the tenets-for-tenets list format, a Plan that starts with an end date) and one short review: what was soft, where risk landed, and the fight the room should have.
+The first reply is a short summary of the endeavor, the customer, the by-when, P1, who is named, and any guessed call, then a yes/no: Shall I proceed? No working 5Ps until you say yes.
+
+After you proceed: a working 5Ps (five headings, Principles in the tenets-for-tenets list format, a Plan that starts with an end date) and one short review: what was soft, where risk landed, and the fight the room should have.
 
 ## Related
 
