@@ -5,5 +5,10 @@
   "status": "beta",
   "order": 60,
   "icon": "icon.png",
-  "summary": "An interactive tool that walks Purpose, Principles, Priorities, People, and Plan so you can open Claude, ChatGPT, or Grok with a prompt that will write the plan. You leave with an agent already briefed, not starting from a vibe. Useful when the endeavor needs a 5Ps and you want the first draft in minutes."
+  "summary": "An interactive tool that walks Purpose, Principles, Priorities, People, and Plan so you can open Claude, ChatGPT, or Grok with a prompt that will write the plan. You leave with an agent already briefed, not starting from a vibe. Useful when the endeavor needs a 5Ps and you want the first draft in minutes.",
+  "posts": [
+    { "title": "The 5Ps", "href": "https://blog.kindel.com/2011/06/14/the-5-ps-achieving-focus-in-any-endeavor/" },
+    { "title": "Have a Plan", "href": "https://blog.kindel.com/2013/03/02/have-a-plan/" },
+    { "title": "Have a Plan (With Dates)", "href": "https://blog.kindel.com/2019/04/18/have-a-plan-with-dates/" }
+  ]
 }
