@@ -8,7 +8,7 @@ The teaching is in [The 5Ps](https://blog.kindel.com/2011/06/14/the-5-ps-achievi
 
 The agent prompt is short. It tells the model to fetch the rules:
 
-- Rules: [`rules.md`](rules.md), live at [https://kindel.com/kld/apps/5ps/rules.md](https://kindel.com/kld/apps/5ps/rules.md)
+- Rules: [`rules.md`](rules.md), live at [https://kindel.com/5ps/rules.md](https://kindel.com/5ps/rules.md)
 - Prompt: [`prompt.md`](prompt.md)
 
 Principles are tenets. For the craft of that list, use [kindel/tenets](https://github.com/kindel/tenets).
