@@ -13,7 +13,7 @@ The agent prompt is short. It tells the model to fetch the rules:
 
 Principles are tenets. For the craft of that list, use [kindel/tenets](https://github.com/kindel/tenets).
 
-Live: [https://kindel.com/5ps/](https://kindel.com/5ps/).
+Live: [https://kindel.com/kld/apps/5ps/](https://kindel.com/kld/apps/5ps/).
 
 ## Use
 
