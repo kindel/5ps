@@ -423,17 +423,17 @@
 
 .fiveps-reset {
   background: transparent;
-  color: var(--kld-muted, #59636f);
-  padding: 0;
+  color: var(--kld-ink, #17202b);
+  box-shadow: inset 0 0 0 1px var(--kld-ink, #17202b);
+  padding: 0.35rem 0.8rem;
+  margin-left: 0.35rem;
   font-size: 0.95rem;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
 }
 
 .fiveps-reset:hover,
 .fiveps-reset:focus {
-  color: var(--kld-rust, #b5532f);
-  background: transparent;
+  background: var(--kld-ink, #17202b);
+  color: #fff;
 }
 
 .fiveps-repo {
