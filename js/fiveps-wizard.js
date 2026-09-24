@@ -918,7 +918,8 @@
           if (!track) return;
           drag = {
             id: btn.getAttribute("data-mark"),
-            track: track
+            track: track,
+            pointerId: e.pointerId
           };
           btn.classList.add("is-dragging");
           btn.setPointerCapture(e.pointerId);
@@ -928,8 +929,8 @@
 
     // The track re-renders on every move, which drops pointer capture, so
     // follow the drag on the document instead of on the mark under the pointer.
-    function endDrag() {
-      if (!drag) return;
+    function endDrag(e) {
+      if (!drag || (e && e.pointerId !== drag.pointerId)) return;
       drag = null;
       suppressTrackClick = true;
       setTimeout(function () { suppressTrackClick = false; }, 0);
@@ -1001,7 +1002,7 @@
     render();
     global.addEventListener("resize", layoutMarks);
     document.addEventListener("pointermove", function (e) {
-      if (drag) moveMark(drag.id, e.clientX);
+      if (drag && e.pointerId === drag.pointerId) moveMark(drag.id, e.clientX);
     });
     document.addEventListener("pointerup", endDrag);
     document.addEventListener("pointercancel", endDrag);
