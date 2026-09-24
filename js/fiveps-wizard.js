@@ -558,8 +558,10 @@
       return "<button type=\"button\" class=\"" + cls + "\" data-mark=\"" + esc(id) + "\" style=\"left:" + left + "%\" " +
         (locked ? "disabled " : "") + ">" +
         "<span class=\"fiveps-mark-dot\"></span>" +
+        "<span class=\"fiveps-mark-text\">" +
         "<span class=\"fiveps-mark-label\">" + esc(label) + "</span>" +
         (showDay ? "<span class=\"fiveps-mark-date\">" + esc(day) + "</span>" : "") +
+        "</span>" +
         "</button>";
     }
 
@@ -829,6 +831,63 @@
       }
       track.insertAdjacentHTML("beforeend", timelineMarks());
       bindMarks();
+      layoutMarks();
+    }
+
+    // Marks sit at their date, so close dates put their text on top of each
+    // other. Stack colliding text into lanes below the rail, keep the edge
+    // text inside the timeline box, and grow the track to fit the lanes.
+    function layoutMarks() {
+      var track = document.getElementById("fiveps-track");
+      if (!track) return;
+      var box = track.parentNode.getBoundingClientRect();
+      var gap = 8;
+      var inset = 4;
+      var items = Array.prototype.slice.call(track.querySelectorAll("[data-mark]")).map(function (btn) {
+        var text = btn.querySelector(".fiveps-mark-text");
+        btn.style.removeProperty("--fiveps-lane");
+        if (text) text.style.removeProperty("--fiveps-shift");
+        return { btn: btn, text: text };
+      }).filter(function (it) { return it.text; });
+      items.forEach(function (it) {
+        var b = it.btn.getBoundingClientRect();
+        var r = it.text.getBoundingClientRect();
+        var shift = 0;
+        if (r.right + shift > box.right - inset) shift = box.right - inset - r.right;
+        if (r.left + shift < box.left + inset) shift = box.left + inset - r.left;
+        it.x = b.left + (b.width / 2);
+        it.left = r.left + shift;
+        it.right = r.right + shift;
+        it.shift = shift;
+      });
+      items.sort(function (a, b) { return a.x - b.x; });
+      var lanes = [];
+      function free(lane, left, right) {
+        return !(lanes[lane] || []).some(function (span) {
+          return left < span[1] + gap && right > span[0] - gap;
+        });
+      }
+      items.forEach(function (it) {
+        var lane = -1;
+        var k;
+        // Prefer a lane whose leader line does not cross text above it.
+        for (k = 0; k <= lanes.length; k++) {
+          if (k > 0 && !free(k - 1, it.x - 3, it.x + 3)) break;
+          if (free(k, it.left, it.right)) { lane = k; break; }
+        }
+        if (lane < 0) {
+          for (k = 0; !free(k, it.left, it.right); k++) {}
+          lane = k;
+        }
+        for (k = 0; k <= lane; k++) {
+          lanes[k] = lanes[k] || [];
+          if (k === lane) lanes[k].push([it.left, it.right]);
+          else lanes[k].push([it.x - 1, it.x + 1]);
+        }
+        if (lane) it.btn.style.setProperty("--fiveps-lane", lane);
+        if (it.shift) it.text.style.setProperty("--fiveps-shift", it.shift.toFixed(1) + "px");
+      });
+      track.style.setProperty("--fiveps-lanes", Math.max(lanes.length - 1, 0));
     }
 
     function bindTimeline() {
@@ -846,6 +905,7 @@
         addMilestone(isoAtPct(pct), "Milestone");
       });
       bindMarks();
+      layoutMarks();
     }
 
     function bindMarks() {
@@ -863,23 +923,17 @@
           btn.classList.add("is-dragging");
           btn.setPointerCapture(e.pointerId);
         });
-        btn.addEventListener("pointermove", function (e) {
-          if (!drag || drag.id !== btn.getAttribute("data-mark")) return;
-          moveMark(drag.id, e.clientX);
-        });
-        btn.addEventListener("pointerup", function () {
-          if (!drag) return;
-          btn.classList.remove("is-dragging");
-          drag = null;
-          suppressTrackClick = true;
-          render();
-        });
-        btn.addEventListener("pointercancel", function () {
-          drag = null;
-          suppressTrackClick = true;
-          render();
-        });
       });
+    }
+
+    // The track re-renders on every move, which drops pointer capture, so
+    // follow the drag on the document instead of on the mark under the pointer.
+    function endDrag() {
+      if (!drag) return;
+      drag = null;
+      suppressTrackClick = true;
+      setTimeout(function () { suppressTrackClick = false; }, 0);
+      render();
     }
 
     function moveMark(id, clientX) {
@@ -945,6 +999,13 @@
 
     applyPurposeDate();
     render();
+    global.addEventListener("resize", layoutMarks);
+    document.addEventListener("pointermove", function (e) {
+      if (drag) moveMark(drag.id, e.clientX);
+    });
+    document.addEventListener("pointerup", endDrag);
+    document.addEventListener("pointercancel", endDrag);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutMarks);
   };
 
   global.kindelFivePsParseDate = parseDateText;
