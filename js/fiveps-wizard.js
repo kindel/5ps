@@ -583,7 +583,8 @@
         "<button type=\"button\" class=\"fiveps-copy\" data-agent=\"copy\" data-idle=\"Copy\">Copy</button>" +
         "</p>" +
         "<p class=\"fiveps-actions-note\">Copy the prompt, or open an agent with it filled in. Works on every step.</p>" +
-        "<p class=\"fiveps-reset-wrap\"><button type=\"button\" class=\"fiveps-reset\" id=\"fiveps-reset\">Start over</button></p>";
+        "<p class=\"fiveps-reset-wrap\">Your 5Ps is saved in this browser only. " +
+        "<button type=\"button\" class=\"fiveps-reset\" id=\"fiveps-reset\">Clear saved data</button></p>";
     }
 
     function bind() {
@@ -729,7 +730,8 @@
       }
       var reset = document.getElementById("fiveps-reset");
       if (reset) reset.addEventListener("click", function () {
-        if (!window.confirm("Clear this 5Ps and start over?")) return;
+        if (!window.confirm("Clear everything saved for this 5Ps and start over? This cannot be undone.")) return;
+        try { localStorage.removeItem(STORE); } catch (e) {}
         state = defaultState();
         render();
       });
