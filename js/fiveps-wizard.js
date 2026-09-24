@@ -731,9 +731,10 @@
       var reset = document.getElementById("fiveps-reset");
       if (reset) reset.addEventListener("click", function () {
         if (!window.confirm("Clear everything saved for this 5Ps and start over? This cannot be undone.")) return;
-        try { localStorage.removeItem(STORE); } catch (e) {}
         state = defaultState();
         render();
+        // render() persists state, so remove the key after it.
+        try { localStorage.removeItem(STORE); } catch (e) {}
       });
     }
 
